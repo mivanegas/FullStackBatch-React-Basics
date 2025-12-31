@@ -1,0 +1,9 @@
+.container {
+  text-align: center;
+  background-color: #eee;
+  height: 100%;
+}
+
+img {
+  height: 300px;
+}
