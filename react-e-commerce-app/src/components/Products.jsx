@@ -32,7 +32,7 @@ function Products({ cart, addToCart }) {
       // const res = await fetch("https://dummyjson.com/products");
       // Using Google Books API Instead
       const res = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=young+adult+romance&orderBy=newest&maxResults=40&&key=AIzaSyDVjEcJxFHw_r5lfLoIYYo3Gcs3EZrnZFU"
+        "https://www.googleapis.com/books/v1/volumes?q=young+adult+romance&orderBy=newest&maxResults=40&&key="
       );
       const data = await res.json();
 
