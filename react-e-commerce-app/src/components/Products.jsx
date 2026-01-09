@@ -26,14 +26,39 @@ function Products({ cart, addToCart }) {
     }
   }, [category]);
 
+  // Calling the API
   async function fetchProducts() {
     try {
-      const res = await fetch("https://dummyjson.com/products");
+      // const res = await fetch("https://dummyjson.com/products");
+      // Using Google Books API Instead
+      const res = await fetch(
+        "https://www.googleapis.com/books/v1/volumes?q=young+adult+romance&orderBy=newest&maxResults=40&&key=AIzaSyDVjEcJxFHw_r5lfLoIYYo3Gcs3EZrnZFU"
+      );
       const data = await res.json();
-      setProducts(data.products);
-      setFilteredProducts(data.products);
 
-      let productCategories = data.products.map((p) => p.category);
+      // Creating structure to make books the product
+      const booksAsProduct = data.items.map((item) => ({
+        id: item.id,
+        title: item.volumeInfo.title,
+        price: (Math.random() * 20 + 5).toFixed(2), // Gives random prices btw $5-$20
+        images: [
+          item.volumeInfo.imageLinks?.thumbnail?.replace(
+            "http://",
+            "https://"
+          ) || "placeholder.jpg",
+        ],
+        category: item.volumeInfo.categories?.[0] || "Uncategorized",
+      }));
+
+      // setProducts(data.products);
+      // setFilteredProducts(data.products);
+
+      setProducts(booksAsProduct);
+      setFilteredProducts(booksAsProduct);
+
+      // let productCategories = data.products.map((p) => p.category);
+      let productCategories = booksAsProduct.map((p) => p.category);
+
       //   Filtering for unique values in the category array
       const uniqueCategories = [];
       productCategories.forEach((c) => {

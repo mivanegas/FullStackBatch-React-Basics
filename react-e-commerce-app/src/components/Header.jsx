@@ -8,9 +8,9 @@ function Header() {
   return (
     <div>
       <h1 className="display-2">
-        Welcome to <span style={brandStyle}>EasyBuy</span>
+        Welcome to <span style={brandStyle}>Quetzal Grove Books</span>
       </h1>
-      <p className="lead fs-4">Get the best deals on online products</p>
+      <p className="lead fs-4">Where freedom is found between the pages</p>
     </div>
   );
 }

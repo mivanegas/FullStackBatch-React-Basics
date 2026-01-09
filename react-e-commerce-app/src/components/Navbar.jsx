@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Badge from "react-bootstrap/Badge";
-import logo from "../assets/logo.png";
+import quetzal from "../assets/quetzal.png";
 import { NavLink } from "react-router";
 
 function NavbarComponent({ cart }) {
@@ -13,12 +13,12 @@ function NavbarComponent({ cart }) {
         <Navbar.Brand as={NavLink} to="/">
           <img
             alt=""
-            src={logo}
+            src={quetzal}
             width="30"
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          EasyBuy
+          Quetzal Grove Books
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -30,7 +30,7 @@ function NavbarComponent({ cart }) {
             <Nav.Link
               as={NavLink}
               to="/cart"
-              lassName={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Cart <Badge bg="dark">{cart.length}</Badge>
             </Nav.Link>
