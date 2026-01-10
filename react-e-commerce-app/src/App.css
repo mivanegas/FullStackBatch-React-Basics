@@ -1,5 +1,31 @@
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+@font-face {
+  font-family: "maya-font";
+  src: url("/CfCivilisationMayaRegular-rp8A.ttf") format("truetype");
+}
+
+.brand-font {
+  font-family: "maya-font", sans-serif;
+}
+
 img {
   max-width: fit-content;
   margin: auto;
   margin-top: 10px;
+}
+
+.rainforest {
+  max-height: 500px;
+}
+
+.navbar a {
+  color: white;
+  font-size: larger;
+}
+
+.navigation {
+  background: #1f6f78;
 }

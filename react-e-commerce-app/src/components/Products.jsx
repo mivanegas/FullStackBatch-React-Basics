@@ -30,9 +30,9 @@ function Products({ cart, addToCart }) {
   async function fetchProducts() {
     try {
       // const res = await fetch("https://dummyjson.com/products");
-      // Using Google Books API Instead
+      // Using Google Books API instead
       const res = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=young+adult+romance&orderBy=newest&maxResults=40&&key="
+        `https://www.googleapis.com/books/v1/volumes?q=new-york-times-bestseller&filter=paid-ebooks&orderBy=newest&maxResults=40&printType=books&key=`
       );
       const data = await res.json();
 
@@ -102,7 +102,7 @@ function Products({ cart, addToCart }) {
                   </Card.Title>
                   <Card.Text>${product.price}</Card.Text>
                   <Button
-                    variant="warning"
+                    variant="danger"
                     className="me-1"
                     onClick={() => addToCart(product.id)}
                   >

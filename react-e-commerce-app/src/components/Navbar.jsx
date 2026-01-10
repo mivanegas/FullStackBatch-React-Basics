@@ -8,14 +8,14 @@ import { NavLink } from "react-router";
 
 function NavbarComponent({ cart }) {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className="navigation">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">
+        <Navbar.Brand as={NavLink} to="/" className="text-white ">
           <img
             alt=""
             src={quetzal}
-            width="30"
-            height="30"
+            width="25"
+            height="25"
             className="d-inline-block align-top"
           />{" "}
           Quetzal Grove Books
