@@ -32,7 +32,9 @@ function Products({ cart, addToCart }) {
       // const res = await fetch("https://dummyjson.com/products");
       // Using Google Books API instead
       const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=new-york-times-bestseller&filter=paid-ebooks&orderBy=newest&maxResults=40&printType=books&key=`
+        `https://www.googleapis.com/books/v1/volumes?q=new-york-times-bestseller&filter=paid-ebooks&orderBy=newest&maxResults=40&printType=books&key=${
+          import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
+        }`
       );
       const data = await res.json();
 
