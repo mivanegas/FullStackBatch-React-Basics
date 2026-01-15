@@ -1,6 +1,9 @@
 import "./App.css";
+import { Provider } from "react-redux";
 import Child1 from "./components/Child1";
 import Child2 from "./components/Child2";
+import User from "./components/User";
+import store from "./store/index";
 
 const containerStyle = {
   border: "1px solid black",
@@ -11,13 +14,15 @@ const containerStyle = {
 
 function App() {
   return (
-    <div style={containerStyle}>
-      <p style={{ fontSize: "4em" }}>{}</p>
-      <div style={{ display: "flex" }}>
-        <Child1 />
-        <Child2 />
+    <Provider store={store}>
+      <div style={containerStyle}>
+        <div style={{ display: "flex" }}>
+          <Child1 />
+          <Child2 />
+        </div>
+        <User />
       </div>
-    </div>
+    </Provider>
   );
 }
 
