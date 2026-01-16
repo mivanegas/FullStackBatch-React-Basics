@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import Child1 from "./components/Child1";
 import Child2 from "./components/Child2";
 import User from "./components/User";
+import Products from "./components/Products";
 import store from "./store/index";
 
 const containerStyle = {
@@ -21,6 +22,7 @@ function App() {
           <Child2 />
         </div>
         <User />
+        <Products />
       </div>
     </Provider>
   );
