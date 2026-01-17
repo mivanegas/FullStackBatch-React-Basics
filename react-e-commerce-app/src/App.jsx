@@ -5,6 +5,7 @@ import LandingPage from "./pages/Landing";
 import CartPage from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Container from "react-bootstrap/esm/Container";
+import About from "./pages/About";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { useState, useEffect } from "react";
 
@@ -70,6 +71,8 @@ function App() {
               />
             }
           />
+
+          <Route path="/about" element={<About />} />
 
           <Route
             path="/cart"

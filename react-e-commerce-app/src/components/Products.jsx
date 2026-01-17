@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router";
+import quetzal from "../assets/quetzal.png";
 
 // Making API call to display products
 function Products({ cart, addToCart, products = [] }) {
@@ -13,19 +14,14 @@ function Products({ cart, addToCart, products = [] }) {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("all");
 
-  //Removed cause moved to app.jsx
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
-
   // Set filtered products to category selected by user
-  // useEffect(() => {
-  //   if (category == "all") {
-  //     setFilteredProducts(products);
-  //   } else {
-  //     setFilteredProducts(products.filter((p) => p.category == category));
-  //   }
-  // }, [category]);
+  useEffect(() => {
+    if (category == "all") {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter((p) => p.category == category));
+    }
+  }, [category]);
 
   // Update the product when props changes
   useEffect(() => {
@@ -43,55 +39,7 @@ function Products({ cart, addToCart, products = [] }) {
     }
   }, [products]);
 
-  // Removed cause moved to app.jsx
-  // async function fetchProducts() {
-  //   try {
-  //     // const res = await fetch("https://dummyjson.com/products");
-  //     // Using Google Books API instead
-  //     const res = await fetch(
-  //       `https://www.googleapis.com/books/v1/volumes?q=new-york-times-bestseller&filter=paid-ebooks&orderBy=newest&maxResults=40&printType=books&key=${
-  //         import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
-  //       }`,
-  //     );
-  //     const data = await res.json();
-
-  //     // Creating structure to make books the product
-  //     const booksAsProduct = data.items.map((item) => ({
-  //       id: item.id,
-  //       title: item.volumeInfo.title,
-  //       price: Number((Math.random() * 20 + 5).toFixed(2)), // Gives random prices btw $5-$20
-  //       images: [
-  //         item.volumeInfo.imageLinks?.thumbnail?.replace(
-  //           "http://",
-  //           "https://",
-  //         ) || "placeholder.jpg",
-  //       ],
-  //       category: item.volumeInfo.categories?.[0] || "Uncategorized",
-  //     }));
-
-  //     // setProducts(data.products);
-  //     // setFilteredProducts(data.products);
-
-  //     setProducts(booksAsProduct);
-  //     setFilteredProducts(booksAsProduct);
-
-  //     // let productCategories = data.products.map((p) => p.category);
-  //     let productCategories = booksAsProduct.map((p) => p.category);
-
-  //     //   Filtering for unique values in the category array
-  //     const uniqueCategories = [];
-  //     productCategories.forEach((c) => {
-  //       if (!uniqueCategories.includes(c)) {
-  //         uniqueCategories.push(c);
-  //       }
-  //     });
-  //     setCategories(uniqueCategories);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // Returning product cards + categories
+  // Returning product cards
   return (
     <>
       <div className="d-flex justify-content-end">
@@ -149,6 +97,22 @@ function Products({ cart, addToCart, products = [] }) {
           </p>
         )}
       </Row>
+
+      <div>
+        <h5 className="mt-5">Return Policy</h5>
+        <p>
+          We want you to love every book you purchase from Quetzal Grove Books.
+          If you're not completely satisfied with your order, you may return
+          undamaged books within 30 days of purchase for a full refund or store
+          credit. Books must be in original condition with no markings, damage,
+          or signs of use. To initiate a return, please contact our customer
+          service team with your order number. Return shipping costs are the
+          responsibility of the customer unless the item arrived damaged or was
+          sent in error. Refunds will be processed within 5-7 business days of
+          receiving your return. Happy reading!
+        </p>
+        <img src={quetzal} alt="quetzal logo" width="45" height="45" />
+      </div>
     </>
   );
 }

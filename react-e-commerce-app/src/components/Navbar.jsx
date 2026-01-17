@@ -23,7 +23,9 @@ function NavbarComponent({ cart }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* <Nav.Link href="#bestsellers">Best Sellers</Nav.Link> */}
+            <Nav.Link as={NavLink} to="/about">
+              About Us
+            </Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link

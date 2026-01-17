@@ -25,7 +25,7 @@ function Header() {
         <Carousel.Item>
           <img src={rainforest} className="img-fluid rainforest" />
           <Carousel.Caption>
-            <h3 className="fw-bold">
+            <h3 className="fw-bold dynamic-text-shadow">
               Where freedom is found between the pages 🦋
             </h3>
           </Carousel.Caption>
