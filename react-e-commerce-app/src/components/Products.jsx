@@ -114,15 +114,21 @@ function Products({ cart, addToCart, products = [] }) {
           filteredProducts.map((product) => (
             <Col key={product.id}>
               <Card style={{ width: "18rem", margin: "1em auto" }}>
-                <Card.Img variant="top" src={product.images[0]} />
+                <Card.Img
+                  style={{ height: "160px", marginTop: "20px" }}
+                  variant="top"
+                  src={product.images[0]}
+                />
                 <Card.Body>
-                  <Card.Title style={{ minHeight: "48px" }}>
-                    {product.title}
+                  <Card.Title style={{ minHeight: "50px" }}>
+                    {product.title && product.title.length > 48
+                      ? `${product.title.slice(0, 48)}...`
+                      : product.title}
                   </Card.Title>
                   <Card.Text>${product.price}</Card.Text>
                   <Button
-                    variant="danger"
-                    className="me-1"
+                    variant="success"
+                    className="me-3"
                     onClick={() => addToCart(product.id)}
                   >
                     {cart.includes(product.id)

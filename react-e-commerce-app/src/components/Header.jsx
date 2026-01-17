@@ -7,7 +7,7 @@ import banner4 from "../assets/banner4.png";
 import banner5 from "../assets/banner5.png";
 
 const brandStyle = {
-  backgroundColor: "#93e4c1",
+  backgroundColor: "#1f6f78",
   borderRadius: "10px",
   padding: "8px",
 };
@@ -17,7 +17,7 @@ function Header() {
     <div>
       <h1 className="display-2 pb-3">
         Welcome to <br />
-        <span style={brandStyle} className="brand-font">
+        <span style={brandStyle} className="brand-font text-white">
           QUETZAL GROVE BOOKS
         </span>
       </h1>

@@ -23,8 +23,7 @@ function NavbarComponent({ cart }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#featured">Featured</Nav.Link>
-            <Nav.Link href="#bestsellers">Best Sellers</Nav.Link>
+            {/* <Nav.Link href="#bestsellers">Best Sellers</Nav.Link> */}
           </Nav>
           <Nav>
             <Nav.Link
@@ -34,15 +33,6 @@ function NavbarComponent({ cart }) {
             >
               Cart <Badge bg="dark">{cart.length}</Badge>
             </Nav.Link>
-            <NavDropdown title="Account" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Customer Care
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
-            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
