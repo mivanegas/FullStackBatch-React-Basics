@@ -144,5 +144,20 @@ body {
 
 #username {
   margin-top: 5px;
+  color: var(--text-color);
+}
+
+#category-tab {
   color: var(--accent-color);
+  font-family: "Crimson Text", serif;
+  font-size: 1.05em;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .dynamic-text-shadow {
+    margin-top: 15px;
+    padding-top: 10px;
+    font-size: 1em;
+  }
 }

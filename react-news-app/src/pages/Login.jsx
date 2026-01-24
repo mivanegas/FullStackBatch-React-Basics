@@ -4,18 +4,25 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
+import { useNavigate } from "react-router";
 
-function Login() {
+function Login({ setUsername }) {
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
+      setValidated(true);
+      return;
     }
 
-    setValidated(true);
+    const usernameValue = form.elements.username.value;
+    setUsername(usernameValue);
+    navigate("/");
   };
 
   return (
@@ -30,9 +37,10 @@ function Login() {
         <Row className="mb- p-3">
           <Form.Group controlId="validationCustomUsername">
             <InputGroup hasValidation>
-              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+              <InputGroup.Text id="inputGroupPrepend1">@</InputGroup.Text>
               <Form.Control
                 type="text"
+                name="username"
                 placeholder="Username"
                 aria-describedby="inputGroupPrepend"
                 required
@@ -44,10 +52,11 @@ function Login() {
           </Form.Group>
         </Row>
         <Row className="mb-3 p-3">
-          <Form.Group controlId="validationCustomUsername">
+          <Form.Group controlId="validationCustomUsername2">
             <InputGroup hasValidation>
               <Form.Control
                 type="password"
+                name="password"
                 placeholder="Password"
                 aria-describedby="inputGroupPrepend"
                 required
@@ -60,7 +69,7 @@ function Login() {
         </Row>
 
         <Button type="submit" className="m-3 p-2">
-          Login
+          Sign in
         </Button>
       </Form>
     </div>

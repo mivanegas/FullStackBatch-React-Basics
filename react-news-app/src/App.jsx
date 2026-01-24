@@ -30,14 +30,35 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  // Login and register users
+  const [username, setUsername] = useState(() => {
+    return localStorage.getItem("username") || null;
+  });
+
+  useEffect(() => {
+    if (username) {
+      localStorage.setItem("username", username);
+    } else {
+      localStorage.removeItem("username");
+    }
+  }, [username]);
+
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <NavbarComponent toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <NavbarComponent
+          toggleDarkMode={toggleDarkMode}
+          darkMode={darkMode}
+          username={username}
+          setUsername={setUsername}
+        />
 
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/register"
+            element={<Register setUsername={setUsername} />}
+          />
+          <Route path="/login" element={<Login setUsername={setUsername} />} />
 
           <Route
             path="/"
