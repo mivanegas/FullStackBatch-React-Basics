@@ -6,16 +6,39 @@ import SecondaryNavbar from "./components/SecondaryNavbar";
 import NewsCards from "./components/NewsCards";
 import { Provider } from "react-redux";
 import store from "./store";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkmode") === "active";
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("darkmode");
+      localStorage.setItem("darkmode", "active");
+    } else {
+      document.body.classList.remove("darkmode");
+      localStorage.removeItem("darkmode");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <NavbarComponent />
+        <NavbarComponent toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <NewsCarousel />
         <SecondaryNavbar />
         <Routes>
+          <Route
+            path="/"
+            element={<Navigate to="/categories/general" replace />}
+          />
           <Route path="/categories/:category" element={<NewsCards />} />
         </Routes>
       </BrowserRouter>

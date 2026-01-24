@@ -1,0 +1,142 @@
+:root {
+  --base-color: white;
+  --base-variant: #e8e8e8d;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --text-color: white;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  min-height: 100vh;
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+
+.custom-navbar {
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+
+.custom-navbar .nav-link {
+  color: var(--text-color) !important;
+}
+
+.custom-navbar .navbar-brand {
+  color: var(--text-color) !important;
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#theme-switch img {
+  fill: var(--primary-color);
+}
+
+/* Only showing one icon */
+#theme-switch img:last-child {
+  display: none;
+}
+
+/* Makes moon visible when dark mode clicked */
+.darkmode #theme-switch img:first-child {
+  display: none;
+}
+
+/* Makes sun icon visible */
+.darkmode #theme-switch img:last-child {
+  display: block;
+}
+
+/* East Bay Time Header */
+.navbar-brand {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-size: 2em;
+  font-style: italic;
+}
+
+.crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.card {
+  box-shadow:
+    rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.card img {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.carousel {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.dynamic-text-shadow {
+  color: #333333;
+  background: #ffffff;
+  border-radius: 2px;
+  text-shadow:
+    2px 2px 0px #ffffff,
+    3.5px 1.5px 0px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  padding: 5px 10px;
+}

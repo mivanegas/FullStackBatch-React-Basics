@@ -22,33 +22,35 @@ function NewsCards(props) {
       <Row>
         {news.map((singleNews, index) => (
           <Col className="my-2" key={index}>
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "18rem", margin: "1em auto" }}>
               <Card.Img
                 variant="top"
                 src={singleNews.urlToImage || fallbackImage}
                 style={{ height: "160px" }}
               />
               <Card.Body>
-                <Card.Title style={{ minHeight: "96px" }}>
+                <Card.Title style={{ minHeight: "90px" }}>
                   {/* Limiting title to 90 characters */}
-                  {singleNews.title && singleNews.title.length > 90
-                    ? `${singleNews.title.slice(0, 90)}...`
+                  {singleNews.title && singleNews.title.length > 70
+                    ? `${singleNews.title.slice(0, 70)}...`
                     : singleNews.title}
                 </Card.Title>
 
-                <Card.Text style={{ minHeight: "120 px" }}>
+                <Card.Text style={{ minHeight: "130px" }}>
                   {/* Limiting description to 150 characters */}
                   {singleNews.description && singleNews.description.length > 150
                     ? `${singleNews.description.slice(0, 150)}...`
                     : singleNews.description}
                 </Card.Text>
-                <a
-                  href={singleNews.url}
-                  className="btn btn-primary w-50"
-                  target="_blank"
-                >
-                  Read more
-                </a>
+                <div className="text-center">
+                  <a
+                    href={singleNews.url}
+                    className="btn btn-dark w-40 "
+                    target="_blank"
+                  >
+                    Read more
+                  </a>
+                </div>
               </Card.Body>
             </Card>
           </Col>

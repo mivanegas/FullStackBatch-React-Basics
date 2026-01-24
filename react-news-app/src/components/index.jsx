@@ -34,7 +34,7 @@ function NewsCarousel() {
             alt="news images in carousel"
           />{" "}
           <Carousel.Caption>
-            <h3>{singleNews.title}</h3>
+            <h3 className="dynamic-text-shadow">{singleNews.title}</h3>
             <p>{singleNews.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
