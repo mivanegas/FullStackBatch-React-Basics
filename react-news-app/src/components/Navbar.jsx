@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import dark_mode from "../assets/dark_mode.svg";
 import light_mode from "../assets/light_mode.svg";
 import moment from "moment";
+import { Link, NavLink } from "react-router";
 
 function NavbarComponent({ toggleDarkMode, darkMode }) {
   return (
@@ -14,23 +15,32 @@ function NavbarComponent({ toggleDarkMode, darkMode }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="w-100 d-flex justify-content-between align-items-center">
             <div className="d-flex">
-              <Nav.Link href="#features" className="fw-bold">
+              <Nav.Link as={NavLink} to="/" className="fw-bold">
                 {moment().format("MMMM Do YYYY, h:mm a")}
               </Nav.Link>
               <Nav.Link href="#subscription">Subscription</Nav.Link>
             </div>
 
-            <Navbar.Brand href="#home">East Bay Times</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to="/">
+              East Bay Times
+            </Navbar.Brand>
 
             <div className="d-flex">
-              <Button className="me-2" variant="dark">
-                Register
-              </Button>
-              <Button variant="secondary">Login</Button>
+              <Link to="/register" className="mt-1">
+                <Button className="me-2" variant="dark">
+                  Register
+                </Button>
+              </Link>
+              <Link to="/login" className="mt-1">
+                <Button variant="secondary">Login</Button>
+              </Link>
+
               <button id="theme-switch" onClick={toggleDarkMode}>
                 <img src={dark_mode} />
                 <img src={light_mode} />
               </button>
+
+              <p id="username">username</p>
             </div>
           </Nav>
         </Navbar.Collapse>

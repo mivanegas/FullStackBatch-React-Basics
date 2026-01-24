@@ -35,7 +35,7 @@ function NewsCarousel() {
           />{" "}
           <Carousel.Caption>
             <h3 className="dynamic-text-shadow">{singleNews.title}</h3>
-            <p>{singleNews.description}</p>
+            <p className="fw-bold">{singleNews.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

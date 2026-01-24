@@ -29,7 +29,7 @@ function NewsCards(props) {
                 style={{ height: "160px" }}
               />
               <Card.Body>
-                <Card.Title style={{ minHeight: "90px" }}>
+                <Card.Title style={{ minHeight: "90px" }} ls>
                   {/* Limiting title to 90 characters */}
                   {singleNews.title && singleNews.title.length > 70
                     ? `${singleNews.title.slice(0, 70)}...`

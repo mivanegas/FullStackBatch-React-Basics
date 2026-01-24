@@ -4,6 +4,8 @@ import NavbarComponent from "./components/Navbar";
 import NewsCarousel from "./components/index";
 import SecondaryNavbar from "./components/SecondaryNavbar";
 import NewsCards from "./components/NewsCards";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
@@ -32,14 +34,26 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <NavbarComponent toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-        <NewsCarousel />
-        <SecondaryNavbar />
+
         <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
           <Route
             path="/"
             element={<Navigate to="/categories/general" replace />}
           />
-          <Route path="/categories/:category" element={<NewsCards />} />
+
+          <Route
+            path="/categories/:category"
+            element={
+              <>
+                <NewsCarousel />
+                <SecondaryNavbar />
+                <NewsCards />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </Provider>
