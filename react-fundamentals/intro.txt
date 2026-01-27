@@ -1,0 +1,97 @@
+# React: A JavaScript library to build user interfaces
+    - Introduced in 2013 by Facebook (Meta)
+    - Declarative library (We need to tell React what to)
+    - Advantages of React.js
+        - Built on top of JavaScript
+    - React is faster than traditional applications
+        - Virtual DOM: Copy of the real DOM
+            - Real DOM (Document Object Model)
+        - Reconciliation: updating the real DOM optimally with only updating the affected nodes
+            - Diffing: compare old virtual DOM with new virtual DOM
+        - SPA: Single page application
+    -  Websites built on React: Facebook, Airbnb, Netflix, Instagram, Asana, Salesforce, Reddit, etc.
+
+
+    - Setup
+        1. Download Node.js: https://nodejs.org/en/download
+            - NPM: Node Package Manager
+            - Run:
+                - node -v: Node version
+                - npm -v: NPM version
+        2. Using Vite (Create a react app locally): 
+            - npm create vite@latest
+            - Give the project a name
+            - Framework: choose React
+            - Variant: choose JavaScript
+            - Use rolldown-vite? No
+            - Install with npm and start now? Yes
+        3. Enter the folder within the terminal
+            - cd (name of folder) react-fundamentals in this case
+        4. Start the application
+            - If you stop running the app and want to start again, use the command: npm run dev
+                - React compiles code and creates a js file understandable by the browser
+
+
+        - Folder Overview:
+            - index.html: Is the only html file in the complete react app
+            - src: Source code of React app
+                - App.jsx: Parent Component
+                - App.css: Styles related to parent component
+                - main.jsx: Logic to compile components and add to html root
+                - index.css: Global Styles
+                - assets: images/assets related to app
+            - package.json: Metadata of application
+
+        - Components:
+            - Building block of React code
+            - Small blocks of code to build parts of UI
+            - Features:
+                - Can be nested
+                - Can be re-used
+            - Function component syntax: 
+                function Component1() {
+                    return(
+                        <h1>Test</h1>
+                    )
+                }
+                - Component name should be in PascalCase
+                - Components returns jsx
+                    - JSX: JavaScript + XML (JavaScript in disguise)
+                        - To use variable values/expression results within JSX, use {}
+                            - JSX/HTML differences:
+                                - use className in JSX for "class" attribute
+                                - Singleton tags need mandatory syntax
+                                    - <singleton />
+                                    - <singleton> </singleton/>
+                - To use a component in the parent component
+                    - First step: Import it
+                    - Syntax:
+                        - <Component1 />
+                        - <Component1></Component1>
+                
+                - Props:
+                    - Makes components dynamic
+                    - Data passed from the parent component to the child component
+                    - Syntax:
+                     - Pass the prop
+                        <Component1 prop1={value1} />
+
+                     - Use the prop
+                        function Component1({ prop1 }){
+                        return(
+                          <h1>Test {prop1}<h1>
+                        )
+                     } 
+
+                - Render: 
+                    - Component loaded in the DOM
+                    - JSX converted to HTML
+                
+                    - React component can have 2 types of data ***
+                    
+                - Data
+                    - props: Data received from parent component
+                    - state: Data belonging to that component
+                - Rules:
+                    - Component re-renders whenever the prop or state changes
+                    - State value should only be updated using state handler
