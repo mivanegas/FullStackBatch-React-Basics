@@ -62,7 +62,13 @@ function App() {
 
           <Route
             path="/"
-            element={<Navigate to="/categories/general" replace />}
+            element={
+              <>
+                <NewsCarousel category="general" />
+                <SecondaryNavbar />
+                <NewsCards category="general" />
+              </>
+            }
           />
 
           <Route
